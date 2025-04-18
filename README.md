@@ -16,6 +16,10 @@ Então realizamos a contagem da frequência de palavras das obras completas de M
 
 A seguir removemos as palavras mais comuns do idioma, denominadas stopwords, gravadas no arquivo stpw, que em geral exercem função sintagmática, isto é, atuam como conectores ou elementos estruturais na frase. Então listamos as 10 palavras mais frequentes na obra de Machado de Assis, em ordem decrescente, excluídas as stopwords.
 
+Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Machado de Assis:
+
+![](Figura1.png)
+
 O usuário poderá reproduzir os procedimentos no *Jupyter Lab*, na linha de comando do terminal Unix ou no Google Colab, ambiente que exigirá ajustes adicionais.
 
 
