@@ -18,7 +18,7 @@ A seguir removemos as palavras mais comuns do idioma, denominadas stopwords, gra
 
 Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Machado de Assis:
 
-![](Figura1.png)
+![](zipf.png)
 
 O usuário poderá reproduzir os procedimentos no *Jupyter Lab*, na linha de comando do terminal Unix ou no Google Colab, ambiente que exigirá ajustes adicionais.
 
