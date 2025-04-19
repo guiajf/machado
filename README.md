@@ -4,7 +4,7 @@ Este notebook foi desenvolvido em continuação a um projeto inacabado, iniciado
 
 Neste exemplo, utilizamos shell scripts para análise computacional da obra de Machado, disponível em http://machado.mec.gov.br, sob domínio público.
 
-Embora Luiz Amaral tenha publicado um dataset, no kaggle, contendo as obras completas, realizamos o download diretamente na página do MEC.
+Embora [Luiz Amaral](https://github.com/luxedo) tenha publicado um [dataset](https://www.kaggle.com/datasets/luxedo/machado-de-assis), no kaggle, contendo as obras completas, realizamos o download diretamente na página do MEC.
 
 O conjunto de utilitários apresentado como exemplo, denominado shell scripts, fornece ferramentas computacionais para processamento de linguagem natural e análise estatística, dentre outras, que podem ser utilizadas para explorar, agrupar, categorizar , sumarizar e extrair informações de textos não-estruturados.
 
