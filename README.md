@@ -8,7 +8,7 @@ Embora [Luiz Amaral](https://github.com/luxedo) tenha publicado um [dataset](htt
 
 O conjunto de utilitários apresentado como exemplo, denominado shell scripts, fornece ferramentas computacionais para processamento de linguagem natural e análise estatística, dentre outras, que podem ser utilizadas para explorar, agrupar, categorizar , sumarizar e extrair informações de textos não-estruturados.
 
-Para aplicar o filtro de frequência de palavras, primeiro criamos um arquivo vazio para ser utilizado como argumento do executável criado para contagem de frequência de palavras, contando as stopwords - palavras comuns do idioma geralmente excluídas das tarefas de análise de texto ou processamento de linguagem natural. Em primeiro lugar, vamos considerar todo o vocabulário utilizado por Machado de Assis, sem distinção.
+Para aplicar o filtro de frequência de palavras, primeiro criamos um arquivo vazio para ser utilizado como argumento do executável criado para contagem de frequência de palavras, inclusive as stopwords - palavras comuns do idioma geralmente excluídas das tarefas de análise de texto ou processamento de linguagem natural. Em primeiro lugar, vamos considerar todo o vocabulário utilizado por Machado de Assis, sem distinção.
 
 Depois criamos um arquivo shell executável, para automatizar tarefas repetitivas, que recebe três argumentos: o primeiro, o arquivo de entrada; o segundo, o filtro de stopwords; por fim, o terceiro define o parâmetro n ou mantém o padrão "10".
 
