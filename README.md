@@ -158,6 +158,8 @@ grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //'
 echo "-----------------------------------------------------------------------"
 grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //' | wc -l
 ```
+
+```bash
 A Constituinte perante a história, pelo sr. Homem de Mello. — Sombras e Luz, do sr. B.
 A crítica teatral. José de Alencar : Mãe
 A Estátua de José de Alencar
