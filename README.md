@@ -387,6 +387,47 @@ sys	0m0,245s
 ```
 
 
+### Calculamos quantas palavras únicas existem no texto
+
+```bash
+./confre.sh bras_cubas.txt nostop 999999 | wc -l
+```
+
+```bash
+real	0m0,334s
+user	0m0,315s
+sys	0m0,032s
+9811
+```
+
+### Calculamos quantas palavras únicas foram utilizadas apenas uma vez
+
+```bash
+./confre.sh bras_cubas.txt nostop 999999 | grep -c '^ *1.'
+```
+
+```bash
+real	0m0,311s
+user	0m0,314s
+sys	0m0,026s
+5983
+```
+
+### Calculamos o vocabulário central do texto
+
+```bash
+./confre.sh bras_cubas.txt nostop 999999 | 
+awk '$1 >= 5' |
+wc -l
+```
+
+```bash
+real	0m0,259s
+user	0m0,309s
+sys	0m0,024s
+1497
+```
+
 ### Considerações finais
 
 As obras completas foram salvas em um único arquivo texto denominado *machado_de_assis_completo.txt*.
