@@ -449,7 +449,7 @@ chmod +x zipf_law.sh
 
 ### Calculamos a Lei de Zipf
 
-Para G.K. Zipf, de acordo com o princípio do menor esforço, utilizamos algumas poucas palavras familiares com mais frequência do que outras. A Lei de Zipf assegura que o produto da frequência de determinada palavra por sua posição no ranking é aproximadamente o mesmo para todas as demais.
+Para G.K. Zipf, de acordo com o princípio do menor esforço, utilizamos algumas poucas palavras familiares com mais frequência do que outras. A Lei de Zipf assegura que o resultado do produto da frequência de determinada palavra por sua posição no ranking é aproximadamente o mesmo para todas as demais.
 
 ```bash
 ./zipf_law.sh bras_cubas.txt 10 > dados.csv
