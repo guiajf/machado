@@ -18,9 +18,7 @@ Então realizamos a contagem da frequência de palavras das obras completas de M
 
 A seguir removemos as palavras mais comuns do idioma, denominadas *stopwords*, gravadas no arquivo *stpw*, que em geral exercem função sintagmática, isto é, atuam como conectores ou elementos estruturais na frase. Então listamos as 10 palavras mais frequentes na obra de Machado de Assis, em ordem decrescente, excluídas as *stopwords*.
 
-Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Machado de Assis:
-
-![](zipf.png)
+Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Machado de Assis.
 
 
 ### Coleta de dados
@@ -427,6 +425,36 @@ user	0m0,309s
 sys	0m0,024s
 1497
 ```
+
+### Criamos o executável para calcular a Lei de Zipf
+
+```bash
+cat > zipf_law.sh << 'EOF'
+#!/bin/bash
+
+# Calcula Zipf's Law
+grep -oE '\w+' "$1" |
+#perl -CS -ne 'print lc' | 
+awk '{print tolower($0)}' |
+sed 's/[^a-z]/\n/g' |
+sort |
+uniq -c |
+sort -k1,1nr |
+awk '{print NR, $1}' |
+sed "${2:-10}q"
+EOF
+
+chmod +x zipf_law.sh
+```
+
+### Calculamos a Lei de Zipf
+
+```bash
+./zipf_law.sh bras_cubas.txt 10 > dados.csv
+head dados.csv
+```
+
+![](zipf.png)
 
 ### Considerações finais
 
