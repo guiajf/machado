@@ -24,12 +24,145 @@ Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Macha
 
 
 ### Coleta de dados
-```python
+
+Criamos o arquivo .sh para baixar os arquivos
+
+```bash
+cat > download_machado.sh << 'EOF'
+#!/bin/bash
+
+# Pasta onde os arquivos serão baixados e convertidos
+PASTA="Machado"
+mkdir -p "$PASTA"
+cd "$PASTA" || exit
+
+# Arquivo único para o corpus completo
+ARQUIVO_COMPLETO="machado_de_assis_completo.txt"
+> "$ARQUIVO_COMPLETO"
+
+# URL base da página com as obras de Machado de Assis
+BASE_URL="https://machado.mec.gov.br/obra-completa-lista?start="
+
+# Função para baixar e converter obras em PDF para texto
+download_obras() {
+    local url="$1"
+    echo "Processando página: $url"
+
+    # Baixa a página HTML
+    local pagina=$(curl -s "$url")
+
+    # Extrai os links de download dos PDFs
+    local links=$(echo "$pagina" | grep -oP '/obra-completa-lista/item/download/[^"]+' | sort -u)
+
+    # Contador para progresso
+    local total=$(echo "$links" | wc -l)
+    local contador=0
+
+    [ -z "$links" ] && echo "Nenhum link encontrado nesta página." && return
+
+    echo "Encontrados $total arquivos nesta página"
+
+    for link in $links; do
+        contador=$((contador+1))
+
+        # Constrói o URL completo
+        local full_url="https://machado.mec.gov.br$link"
+
+        # Extrai o nome do arquivo a partir do URL
+        local file_name=$(basename "$link" | cut -d'_' -f2-)
+        file_name="${file_name%.*}.pdf"  # Garante extensão .pdf
+
+        # Nome do arquivo de texto
+        local txt_file_name="${file_name%.*}.txt"
+
+        echo -e "\n[${contador}/${total}] Processando: $file_name"
+
+        # Verifica se já existe um arquivo de texto correspondente
+        if [ -f "$txt_file_name" ]; then
+            echo "Arquivo de texto já existe. Pulando conversão."
+        else
+            # Verifica se o arquivo PDF já existe no diretório
+            if [ ! -f "$file_name" ]; then
+                # Faz o download do arquivo
+                echo "Baixando: $full_url"
+                curl -s -L -o "$file_name" "$full_url" || {
+                    echo "Erro ao baixar $full_url"
+                    continue
+                }
+            else
+                echo "Arquivo PDF já existe. Pulando download."
+            fi
+
+            # Converte o arquivo PDF para texto
+            if [ -f "$file_name" ]; then
+                echo "Convertendo para texto..."
+                pdftotext "$file_name" "$txt_file_name" || {
+                    echo "Erro ao converter $file_name"
+                    continue
+                }
+
+                # Remove o arquivo PDF original se a conversão foi bem-sucedida
+                rm "$file_name"
+                echo "Arquivo PDF removido."
+            fi
+        fi
+
+        # Adiciona o conteúdo ao arquivo completo
+        if [ -f "$txt_file_name" ]; then
+            # Extrai o título da primeira linha
+            local titulo=$(head -n 1 "$txt_file_name" | sed 's/^[ \t]*//;s/[ \t]*$//')
+
+            # Se o título estiver vazio, usa o nome do arquivo
+            if [ -z "$titulo" ]; then
+                titulo="${file_name%.*}"
+            fi
+
+            echo "Adicionando: $titulo"
+            echo "## $titulo" >> "$ARQUIVO_COMPLETO"
+            echo "Arquivo: $txt_file_name" >> "$ARQUIVO_COMPLETO"
+            echo "" >> "$ARQUIVO_COMPLETO"
+            tail -n +2 "$txt_file_name" >> "$ARQUIVO_COMPLETO"
+            echo -e "\n\n" >> "$ARQUIVO_COMPLETO"
+        fi
+    done
+}
+
+# Realiza o download das obras em todas as páginas
+# Considerando 10 páginas com 12 itens cada
+for start in $(seq 0 12 120); do
+    url="${BASE_URL}${start}"
+    download_obras "$url"
+done
+
+echo -e "\nProcessamento concluído. Arquivo completo salvo em: $PASTA/$ARQUIVO_COMPLETO"
+EOF
 ```
+
+### Tornamos o arquivo executável
+
+```bash
+chmod +x download_machado.sh
+```
+
+### Executamos o arquivo
+
+```bash
+./download_machado.sh
+```
+
+### Listamos os títulos baixados
+
+```bash
+ARQUIVO_COMPLETO=Machado/machado_de_assis_completo.txt
+grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //'
+echo "-----------------------------------------------------------------------"
+grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //' | wc -l
+``
 
 
 ### Considerações finais
 
+As obras completas foram salvas em um único arquivo texto denominado *machado_de_assis_completo.txt*.
 O usuário poderá reproduzir os procedimentos no *Jupyter Lab*, na linha de comando do terminal Unix ou no Google Colab, ambiente que exigirá ajustes adicionais.
 
 
