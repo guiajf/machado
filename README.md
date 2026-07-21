@@ -1,5 +1,7 @@
 # Para ler Machado de Assis
 
+### Introdução
+
 Este notebook foi desenvolvido em continuação a um projeto inacabado, iniciado em 2011, que pode ser encontrado online no seguinte endereço: https://paralermachadodeassis.wordpress.com/.
 
 Neste exemplo, utilizamos shell scripts para análise computacional da obra de Machado, disponível em http://machado.mec.gov.br, sob domínio público.
@@ -19,6 +21,14 @@ A seguir removemos as palavras mais comuns do idioma, denominadas *stopwords*, g
 Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Machado de Assis:
 
 ![](zipf.png)
+
+
+### Coleta de dados
+``python
+```
+
+
+### Considerações finais
 
 O usuário poderá reproduzir os procedimentos no *Jupyter Lab*, na linha de comando do terminal Unix ou no Google Colab, ambiente que exigirá ajustes adicionais.
 
