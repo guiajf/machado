@@ -350,6 +350,42 @@ user	0m9,842s
 sys	0m0,209s
 ```
 
+### Efetuamos a contagem de frequência de palavras sem *stopwords*
+
+Neste procedimento são removidas as palavras mais comuns do idioma, denominadas *stopwords*, que em geral exercem função sintagmática, isto é, atuam como conectores ou elementos estruturais na frase.
+
+```bash
+./confre.sh $ARQUIVO_COMPLETO stpw 20
+```
+
+```bash
+Iniciando processamento...
+   9148 mais
+   3774 ser
+   3137 tempo
+   3093 casa
+   3003 nada
+   2854 tão
+   2770 olhos
+   2655 dia
+   2592 homem
+   2537 assim
+   2483 bem
+   2469 dois
+   2184 menos
+   2181 vida
+   2135 dizer
+   1995 duas
+   1932 onde
+   1930 dias
+   1858 então
+   1846 ia
+
+real	0m8,736s
+user	0m10,752s
+sys	0m0,245s
+```
+
 
 ### Considerações finais
 
