@@ -138,7 +138,7 @@ echo -e "\nProcessamento concluído. Arquivo completo salvo em: $PASTA/$ARQUIVO_
 EOF
 ```
 
-### Tornamos o arquivo executável
+### Definimos as permissões
 
 ```bash
 chmod +x download_machado.sh
@@ -279,6 +279,77 @@ Várias Histórias
 -----------------------------------------------------------------------
 116
 ```
+
+### Criamos o executável para contagem de frequência de palavras
+
+```bash
+cat > confre.sh << 'EOF'
+#!/bin/bash
+
+# Inicia o contador de tempo
+echo "Iniciando processamento..."
+time {
+    grep -oE '\w+' "$1" |
+   #perl -CS -ne 'print lc'  #  Google Colab não respeita o locale 
+    awk '{print tolower($0)}' |
+    sort |
+    grep -wvFf "$2" |
+    uniq -c |
+    sort -k1,1nr -k2 |
+    sed ${3:-10}q
+}
+EOF
+```
+
+### Definimos as permissões
+
+```bash
+chmod +x confre.sh
+```
+
+### Criar um arquivo vazio
+
+Criamos um arquivo vazio para ser utilizado como argumento do executável criado para contagem de frequência, incluíndo todas as palavras.
+
+```bash
+cat > nostop << 'EOF'
+EOF
+```
+
+### Efetuamos a contagem da frequência de palavras sem exceção
+
+```bash
+./confre.sh $ARQUIVO_COMPLETO nostop 20
+```
+
+```bash
+Iniciando processamento...
+  75451 a
+  69367 que
+  66921 de
+  60774 o
+  57052 e
+  34383 não
+  28067 se
+  25059 do
+  24127 um
+  21989 da
+  20839 é
+  19763 os
+  16521 uma
+  15381 em
+  14953 com
+  14788 as
+  13113 para
+  12391 mas
+  11921 lhe
+  10961 ao
+
+real	0m7,664s
+user	0m9,842s
+sys	0m0,209s
+```
+
 
 ### Considerações finais
 
