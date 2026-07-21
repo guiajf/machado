@@ -157,7 +157,7 @@ ARQUIVO_COMPLETO=Machado/machado_de_assis_completo.txt
 grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //'
 echo "-----------------------------------------------------------------------"
 grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //' | wc -l
-``
+```
 
 
 ### Considerações finais
