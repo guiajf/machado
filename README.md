@@ -158,7 +158,125 @@ grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //'
 echo "-----------------------------------------------------------------------"
 grep "^## " $ARQUIVO_COMPLETO | sort | uniq | sed 's/^## //' | wc -l
 ```
-
+A Constituinte perante a história, pelo sr. Homem de Mello. — Sombras e Luz, do sr. B.
+A crítica teatral. José de Alencar : Mãe
+A Estátua de José de Alencar
+Alberto de Oliveira: Meridionais
+Álvares de Azevedo: Lira dos vinte anos
+A Mão e a Luva
+Americanas
+A morte de Francisco Otaviano
+A nova geração
+Ao Acaso
+A Paixão de Jesus
+Aquarelas
+A Reforma pelo jornal
+A semana
+As Forcas Caudinas
+Badaladas
+Balas de Estalo
+Bons Dias!
+Carlos Jansen: Contos seletos das mil e uma noites
+Carta ao Sr. Bispo do Rio de Janeiro
+Carta à Redação da Imprensa Acadêmica
+Cartas Fluminenses
+Casa Velha
+Castro Alves
+Cenas da vida amazônica. por José Veríssimo.
+Cherchez la femme
+Comentários da semana
+Compêndio da Gramática Portuguesa, por Vergueiro e Pertence. — À memória de
+Contos Fluminenses
+Crisálidas
+Crítica teatral
+Crônicas
+Crônicas do Dr. Semana
+Desencantos
+Discursos na Academia Brasileira de Letras
+Dois folhetins. Suplício de uma mulher
+Dom Casmurro
+Eça de Queirós
+Eça de Queirós: O Primo Basílio
+Eduardo Prado
+Enéias Galvão: Miragens
+Entre 1892 e 1894
+Esaú e Jacó
+Fagundes Varela
+Fagundes Varela: Cantos e fantasias
+Falenas
+Flores e frutos. Poesias por Bruno Seabra, Garnier editor, 1862.
+Francisco de Castro: Harmonias errantes
+Garrett
+Gazeta de Holanda
+Gonçalves Dias
+Helena
+Henrique Chaves
+Henrique Lombaerts
+Henriqueta Renan
+História de Quinze Dias
+História dos trinta dias
+Histórias da Meia-Noite
+Histórias Sem Data
+Hoje avental, amanhã luva
+Iaiá Garcia
+Idéias sobre o Teatro
+J.M. de Macedo: O culto do dever
+Joaquim Nabuco: Pensées détachées et souvenirs
+Joaquim Serra
+José de Alencar
+José de Alencar: Iracema
+José de Alencar: O Guarani
+Junqueira Freire: Inspirações do claustro
+Lição de Botânica
+L. L. Fernandes Pinheiro Júnior: Tipos e quadros
+Lúcio de Mendonça: Névoas matutinas
+Magalhães de Azeredo: Horas sagradas; Mário de Alencar: Versos
+Magalhães de Azeredo: Procelárias
+Memorial de Aires
+Memórias Póstumas de Brás Cubas
+Não consultes médico
+Notas semanais
+Notícia da atual literatura brasileira. Instinto de nacionalidade
+O Almada
+O Bote de Rapé
+O caminho da porta
+Ocidentais
+O futuro dos argentinos
+O ideal do crítico
+O jornal e o livro [1]
+Oliveira Lima: Secretário D’El-Rei
+Oliver Twist
+O passado, o presente e o futuro da literatura
+Os Deuses de casaca
+Os imortais
+Os Trabalhadores do Mar
+O Velho Senado
+O Visconde de Castilho
+Páginas Recolhidas
+Papéis Avulsos
+Pareceres de Machado de Assis a diversas peças teatrais
+Pedro Luís
+Peregrinação pela província de S. Paulo. por A. E. Zaluar, 1863, Garnier, editor.
+Poesias dispersas
+Porto Alegre: Colombo
+Propósito
+Quase ministro
+Queda que as mulheres têm para os tolos
+Quincas Borba
+Raimundo Correia: Sinfonias
+Relíquias de Casa Velha
+Ressurreição
+Revelações. Poesias de A. E. Zaluar, Garnier editor, 1863.
+Revista dos Teatros
+Revista Dramática
+Secretaria da Agricultura
+Suplício de uma mulher
+Tu, só tu, puro amor
+Un cuento endemoniado e La mujer misteriosa. por Guilherme Malta. [1]
+Várias Histórias
+-----------------------------------------------------------------------
+116
+```
 
 ### Considerações finais
 
