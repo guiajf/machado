@@ -25,7 +25,7 @@ Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Macha
 
 ### Coleta de dados
 
-Criamos o arquivo .sh para baixar os arquivos
+Criamos o arquivo .sh para baixar as obras no [repositório](https://machado.mec.gov.br/obra-completa-lista).
 
 ```bash
 cat > download_machado.sh << 'EOF'
