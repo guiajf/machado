@@ -24,7 +24,7 @@ Por fim, investigamos se a Lei de Zipf se aplica a uma obra específica de Macha
 
 
 ### Coleta de dados
-``python
+```python
 ```
 
 
